@@ -14,5 +14,7 @@
 
     </style>
 
-
+    <style name="Theme.POSRocketTask.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    </style>
 </resources>

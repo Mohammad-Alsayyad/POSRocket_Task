@@ -13,7 +13,7 @@
         android:theme="@style/Theme.POSRocketTask">
         <activity android:name=".ui.activities.customer_page.AddCustomerActivity" />
         <activity android:name=".ui.activities.home_page.HomeActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.POSRocketTask.NoActionBar">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

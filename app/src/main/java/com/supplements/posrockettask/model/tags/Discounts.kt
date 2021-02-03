@@ -15,7 +15,7 @@ class Discounts {
     override fun toString(): String {
         return "${name.orEmpty()} ${rate?.toString().orEmpty()} ${type.orEmpty()} " +
                 "${color.orEmpty()} ${amount?.toString().orEmpty()}" +
-                " \n ---------- \n "
+                " \n"
     }
 
 }

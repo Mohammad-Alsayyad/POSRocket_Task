@@ -1,0 +1,8 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <dimen name="card_corner_radius">12dp</dimen>
+    <dimen name="card_elevation">12dp</dimen>
+    <dimen name="base_margin">8dp</dimen>
+
+
+</resources>
