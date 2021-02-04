@@ -9,4 +9,16 @@
     <string name="base_ic_name">ic_gender_%1$s</string>
     <string name="full_name">%1$s %2$s</string>
     <string name="search">Search</string>
+    <string name="clear">Clear</string>
+    <string name="title_general_info">General Info</string>
+    <string name="hint_first_name">First Name*</string>
+    <string name="hint_last_name">Last Name</string>
+    <string name="hint_email">Email</string>
+    <string name="title_gender">Gender</string>
+    <string name="radio_txt_male">Male</string>
+    <string name="radio_txt_female">Female</string>
+    <string name="radio_txt_none">None</string>
+    <string name="hint_address">Addresses</string>
+    <string name="hint_comments">Comments</string>
+    <string name="txt_btn_add">Add</string>
 </resources>

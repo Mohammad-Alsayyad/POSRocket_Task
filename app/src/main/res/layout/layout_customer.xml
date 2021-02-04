@@ -31,73 +31,45 @@
 
         <TextView
             android:id="@+id/tvFullName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/base_margin"
-            android:layout_marginLeft="@dimen/base_margin"
-            android:layout_marginTop="@dimen/base_margin"
-            android:layout_marginEnd="@dimen/base_margin"
-            android:layout_marginRight="@dimen/base_margin"
+            style="@style/text_view_layout_customer_properties"
             android:text="@string/hint_full_name"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgGender"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/imgGender" />
 
         <TextView
             android:id="@+id/tvPhoneNo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/base_margin"
-            android:layout_marginLeft="@dimen/base_margin"
-            android:layout_marginTop="@dimen/base_margin"
-            android:layout_marginEnd="@dimen/base_margin"
-            android:layout_marginRight="@dimen/base_margin"
+            style="@style/text_view_layout_customer_properties"
             android:text="@string/hint_phone_number"
             android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_phone_number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvFullName"
-            app:drawableStartCompat="@drawable/ic_phone_number"
-            android:drawablePadding="@dimen/base_margin"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvFullName" />
 
         <TextView
             android:id="@+id/tvBalance"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/base_margin"
-            android:layout_marginLeft="@dimen/base_margin"
-            android:layout_marginTop="@dimen/base_margin"
-            android:layout_marginEnd="@dimen/base_margin"
-            android:layout_marginRight="@dimen/base_margin"
+            style="@style/text_view_layout_customer_properties"
             android:text="@string/hint_balance"
+            app:drawableStartCompat="@drawable/ic_wallet"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvPhoneNo"
-            app:drawableStartCompat="@drawable/ic_wallet"
-            android:drawablePadding="@dimen/base_margin"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvPhoneNo" />
 
         <TextView
             android:id="@+id/tvTags"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/base_margin"
-            android:layout_marginLeft="@dimen/base_margin"
-            android:layout_marginTop="@dimen/base_margin"
-            android:layout_marginEnd="@dimen/base_margin"
-            android:layout_marginRight="@dimen/base_margin"
-            android:layout_marginBottom="@dimen/base_margin"
+            style="@style/text_view_layout_customer_properties"
+            android:layout_marginBottom="8dp"
             android:text="@string/hint_tags"
+            app:drawableStartCompat="@drawable/ic_tags"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvBalance"
-            app:drawableStartCompat="@drawable/ic_tags"
-            android:drawablePadding="@dimen/base_margin"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvBalance" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
