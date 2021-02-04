@@ -12,5 +12,7 @@ class Block {
     var ar:String?=null
     var en:String?=null
 
-
+    override fun toString(): String {
+        return "$ar $en"
+    }
 }

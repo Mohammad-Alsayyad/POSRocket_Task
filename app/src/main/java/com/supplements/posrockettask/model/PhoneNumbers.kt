@@ -20,4 +20,10 @@ class PhoneNumbers {
         this.is_primary = is_primary
         this.is_verified = is_verified
     }
+
+    override fun toString(): String {
+        return "$number"
+    }
+
+
 }

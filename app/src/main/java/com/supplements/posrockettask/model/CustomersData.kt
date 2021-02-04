@@ -3,6 +3,7 @@ package com.supplements.posrockettask.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.supplements.posrockettask.model.addresses.Addresses
+import com.supplements.posrockettask.model.tags.Discounts
 import com.supplements.posrockettask.model.tags.Tags
 import java.util.*
 
@@ -27,7 +28,16 @@ class CustomersData {
 
 
     override fun toString(): String {
-        return "$email $addresses, last_name=$last_name, first_name=$first_name, phone_numbers=$phone_numbers)"
+        var phoneNumbers:String? =null
+        for (p: PhoneNumbers in phone_numbers.orEmpty()){
+            phoneNumbers+= p.toString()
+        }
+        var addressesList:String? =null
+        for (a: Addresses in addresses.orEmpty()){
+            addressesList+= a.toString()
+        }
+
+        return "$first_name $last_name $country ${addressesList.orEmpty()} ${phoneNumbers.orEmpty()}"
     }
 
 

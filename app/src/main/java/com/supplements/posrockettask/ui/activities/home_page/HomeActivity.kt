@@ -6,6 +6,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.ProgressBar
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -28,8 +31,11 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var rvCustomer: RecyclerView
     private var spanCount: Int = 0
     private var isConnected: Boolean? = null
-    private lateinit var adapter:CustomersAdapter
+    private lateinit var adapter: CustomersAdapter
     private lateinit var toolbar: Toolbar
+    lateinit var progressBar: ProgressBar
+    lateinit var container: RelativeLayout
+    lateinit var params: RelativeLayout.LayoutParams
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,23 +46,31 @@ class HomeActivity : AppCompatActivity() {
 
         rvCustomer = findViewById(R.id.rvCustomers)
         toolbar = findViewById(R.id.toolbarHomePage)
+        container = findViewById(R.id.container)
 
+        // ToolBar
         toolbar.title = ""
         toolbar.setNavigationIcon(R.drawable.ic_add_account)
         setSupportActionBar(toolbar)
         toolbar.setNavigationOnClickListener {
             startActivity(Intent(this@HomeActivity, AddCustomerActivity::class.java))
         }
+        // Add progress bar
+        progressBar = ProgressBar(this, null, android.R.attr.progressBarStyleLarge)
+        params = RelativeLayout.LayoutParams(150, 150)
+        params.addRule(RelativeLayout.CENTER_IN_PARENT)
 
+        // detect span count
         spanCount = HelperClass.calcSpanWidth(this, 150.0)
+        // check internet connection
         isConnected = NetworkHelper.isConnectedToWiFiOrMobileNetwork(this)
-
+        // build recycler view
         buildRVCustomer(spanCount, isConnected!!)
     }
 
     private fun buildRVCustomer(spanCount: Int, isConnected: Boolean) {
 
-        Toast.makeText(this@HomeActivity, isConnected.toString(), Toast.LENGTH_SHORT).show()
+        container.addView(progressBar, params)
 
         rvCustomer.layoutManager =
             StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL)
@@ -64,11 +78,12 @@ class HomeActivity : AppCompatActivity() {
         viewModel.getAllCustomers(isConnected).observe(
             this
         ) { it ->
-             adapter = CustomersAdapter(this, it)
+            adapter = CustomersAdapter(this, it)
             rvCustomer.adapter = adapter
+            progressBar.visibility = View.GONE
             adapter.notifyDataSetChanged()
-        }
 
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -89,6 +104,7 @@ class HomeActivity : AppCompatActivity() {
                 callSearch(newText)
                 return true
             }
+
             fun callSearch(query: String?) {
                 adapter.getFilter().filter(query);
             }

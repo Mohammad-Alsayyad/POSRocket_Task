@@ -56,4 +56,11 @@ class Addresses {
         this.is_primary = is_primary
         this.is_verified = is_verified
     }
+
+    override fun toString(): String {
+
+        return "$area $city $block $street"
+    }
+
+
 }
