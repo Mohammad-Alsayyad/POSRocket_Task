@@ -15,12 +15,9 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 class HomeViewModel @ViewModelInject constructor(var repository: Repository) : ViewModel() {
 
 
-
     fun getAllCustomers(isConnected:Boolean): LiveData<MutableList<CustomersData>> {
+
        return repository.getAllCustomers(isConnected)
    }
-
-
-
 
 }

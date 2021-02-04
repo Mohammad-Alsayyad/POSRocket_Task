@@ -26,4 +26,9 @@ class CustomersData {
     var phone_numbers:MutableList<PhoneNumbers>?=null
 
 
+    override fun toString(): String {
+        return "$email $addresses, last_name=$last_name, first_name=$first_name, phone_numbers=$phone_numbers)"
+    }
+
+
 }

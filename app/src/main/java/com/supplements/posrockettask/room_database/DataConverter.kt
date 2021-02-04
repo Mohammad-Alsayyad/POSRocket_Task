@@ -14,190 +14,190 @@ import java.lang.reflect.Type
 class DataConverter :Serializable {
 
     @TypeConverter
-    fun fromPhoneNumbers(countryLang: MutableList<PhoneNumbers?>?): String? {
-        if (countryLang == null) {
+    fun fromPhoneNumbers(phoneNumbers: MutableList<PhoneNumbers?>?): String? {
+        if (phoneNumbers == null) {
             return null
         }
         val gson = Gson()
         val type: Type? = object : TypeToken<MutableList<PhoneNumbers?>?>() {}.type
-        return gson.toJson(countryLang, type)
+        return gson.toJson(phoneNumbers, type)
     }
 
     @TypeConverter
-    fun toPhoneNumbers(countryLangString: String?): MutableList<PhoneNumbers>? {
-        if (countryLangString == null) {
+    fun toPhoneNumbers(phoneNumbersString: String?): MutableList<PhoneNumbers>? {
+        if (phoneNumbersString == null) {
             return null
         }
         val gson = Gson()
         val type: Type = object : TypeToken<MutableList<PhoneNumbers?>?>() {}.type
-        return gson.fromJson<MutableList<PhoneNumbers>>(countryLangString, type)
+        return gson.fromJson<MutableList<PhoneNumbers>>(phoneNumbersString, type)
     }
 
 
     @TypeConverter
-    fun fromTags(countryLang: MutableList<Tags?>?): String? {
-        if (countryLang == null) {
+    fun fromTags(tags: MutableList<Tags?>?): String? {
+        if (tags == null) {
             return null
         }
         val gson = Gson()
         val type: Type? = object : TypeToken<MutableList<Tags?>?>() {}.type
-        return gson.toJson(countryLang, type)
+        return gson.toJson(tags, type)
     }
 
     @TypeConverter
-    fun toTags(countryLangString: String?): MutableList<Tags>? {
-        if (countryLangString == null) {
+    fun toTags(tagsString: String?): MutableList<Tags>? {
+        if (tagsString == null) {
             return null
         }
         val gson = Gson()
         val type: Type = object : TypeToken<MutableList<Tags?>?>() {}.type
-        return gson.fromJson<MutableList<Tags>>(countryLangString, type)
+        return gson.fromJson<MutableList<Tags>>(tagsString, type)
     }
 
     @TypeConverter
-    fun fromDiscounts(countryLang: MutableList<Discounts?>?): String? {
-        if (countryLang == null) {
+    fun fromDiscounts(discounts: MutableList<Discounts?>?): String? {
+        if (discounts == null) {
             return null
         }
         val gson = Gson()
         val type: Type? = object : TypeToken<MutableList<Discounts?>?>() {}.type
-        return gson.toJson(countryLang, type)
+        return gson.toJson(discounts, type)
     }
 
     @TypeConverter
-    fun toDiscounts(countryLangString: String?): MutableList<Discounts>? {
-        if (countryLangString == null) {
+    fun toDiscounts(discountsString: String?): MutableList<Discounts>? {
+        if (discountsString == null) {
             return null
         }
         val gson = Gson()
         val type: Type = object : TypeToken<MutableList<Discounts?>?>() {}.type
-        return gson.fromJson<MutableList<Discounts>>(countryLangString, type)
+        return gson.fromJson<MutableList<Discounts>>(discountsString, type)
     }
 
 
 
     @TypeConverter
-    fun fromAddresses(countryLang: MutableList<Addresses?>?): String? {
-        if (countryLang == null) {
+    fun fromAddresses(addresses: MutableList<Addresses?>?): String? {
+        if (addresses == null) {
             return null
         }
         val gson = Gson()
         val type: Type? = object : TypeToken<MutableList<Addresses?>?>() {}.type
-        return gson.toJson(countryLang, type)
+        return gson.toJson(addresses, type)
     }
 
     @TypeConverter
-    fun toAddresses(countryLangString: String?): MutableList<Addresses>? {
-        if (countryLangString == null) {
+    fun toAddresses(addressesString: String?): MutableList<Addresses>? {
+        if (addressesString == null) {
             return null
         }
         val gson = Gson()
         val type: Type = object : TypeToken<MutableList<Addresses?>?>() {}.type
-        return gson.fromJson<MutableList<Addresses>>(countryLangString, type)
+        return gson.fromJson<MutableList<Addresses>>(addressesString, type)
     }
 
 
     @TypeConverter
-    fun fromCity(countryLang: City?): String? {
-        if (countryLang == null) {
+    fun fromCity(city: City?): String? {
+        if (city == null) {
             return null
         }
         val gson = Gson()
         val type: Type? = object : TypeToken<City?>() {}.type
-        return gson.toJson(countryLang, type)
+        return gson.toJson(city, type)
     }
 
     @TypeConverter
-    fun toCity(countryLangString: String?): City? {
-        if (countryLangString == null) {
+    fun toCity(cityString: String?): City? {
+        if (cityString == null) {
             return null
         }
         val gson = Gson()
         val type: Type = object : TypeToken<City?>() {}.type
-        return gson.fromJson<City>(countryLangString, type)
+        return gson.fromJson<City>(cityString, type)
     }
 
 
     @TypeConverter
-    fun fromPosition(countryLang: Position?): String? {
-        if (countryLang == null) {
+    fun fromPosition(position: Position?): String? {
+        if (position == null) {
             return null
         }
         val gson = Gson()
         val type: Type? = object : TypeToken<Position?>() {}.type
-        return gson.toJson(countryLang, type)
+        return gson.toJson(position, type)
     }
 
     @TypeConverter
-    fun toPosition(countryLangString: String?): Position? {
-        if (countryLangString == null) {
+    fun toPosition(positionString: String?): Position? {
+        if (positionString == null) {
             return null
         }
         val gson = Gson()
         val type: Type = object : TypeToken<Position?>() {}.type
-        return gson.fromJson<Position>(countryLangString, type)
+        return gson.fromJson<Position>(positionString, type)
     }
 
 
     @TypeConverter
-    fun fromAvenue(countryLang: Avenue?): String? {
-        if (countryLang == null) {
+    fun fromAvenue(avenue: Avenue?): String? {
+        if (avenue == null) {
             return null
         }
         val gson = Gson()
         val type: Type? = object : TypeToken<Avenue?>() {}.type
-        return gson.toJson(countryLang, type)
+        return gson.toJson(avenue, type)
     }
 
     @TypeConverter
-    fun toAvenue(countryLangString: String?): Avenue? {
-        if (countryLangString == null) {
+    fun toAvenue(avenueString: String?): Avenue? {
+        if (avenueString == null) {
             return null
         }
         val gson = Gson()
         val type: Type = object : TypeToken<Avenue?>() {}.type
-        return gson.fromJson<Avenue>(countryLangString, type)
+        return gson.fromJson<Avenue>(avenueString, type)
     }
 
 
     @TypeConverter
-    fun fromBlock(countryLang: Block?): String? {
-        if (countryLang == null) {
+    fun fromBlock(block: Block?): String? {
+        if (block == null) {
             return null
         }
         val gson = Gson()
         val type: Type? = object : TypeToken<Block?>() {}.type
-        return gson.toJson(countryLang, type)
+        return gson.toJson(block, type)
     }
 
     @TypeConverter
-    fun toBlock(countryLangString: String?): Block? {
-        if (countryLangString == null) {
+    fun toBlock(blockString: String?): Block? {
+        if (blockString == null) {
             return null
         }
         val gson = Gson()
         val type: Type = object : TypeToken<Block?>() {}.type
-        return gson.fromJson<Block>(countryLangString, type)
+        return gson.fromJson<Block>(blockString, type)
     }
 
     @TypeConverter
-    fun fromArea(countryLang: Area?): String? {
-        if (countryLang == null) {
+    fun fromArea(area: Area?): String? {
+        if (area == null) {
             return null
         }
         val gson = Gson()
         val type: Type? = object : TypeToken<Area?>() {}.type
-        return gson.toJson(countryLang, type)
+        return gson.toJson(area, type)
     }
 
     @TypeConverter
-    fun toArea(countryLangString: String?): Area? {
-        if (countryLangString == null) {
+    fun toArea(areaString: String?): Area? {
+        if (areaString == null) {
             return null
         }
         val gson = Gson()
         val type: Type = object : TypeToken<Area?>() {}.type
-        return gson.fromJson<Area>(countryLangString, type)
+        return gson.fromJson<Area>(areaString, type)
     }
 
 

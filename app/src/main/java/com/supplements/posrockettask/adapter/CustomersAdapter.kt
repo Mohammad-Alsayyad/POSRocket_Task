@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -14,12 +15,18 @@ import com.supplements.posrockettask.model.tags.Tags
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.util.*
+import kotlin.collections.ArrayList
 
 class CustomersAdapter(
     var context: Context,
     private var customersData: MutableList<CustomersData>
-) :
-    RecyclerView.Adapter<CustomersAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<CustomersAdapter.ViewHolder>() {
+
+    private  var customerListFull: MutableList<CustomersData>
+
+    init {
+        customerListFull =ArrayList(customersData)
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -35,9 +42,9 @@ class CustomersAdapter(
         holder.imgGender.setImageResource(drawableId)
 
         // set full name
-        var lastname: String = customersData[position].last_name.orEmpty()
-        var firstName: String = customersData[position].first_name.orEmpty()
-        var fullName: String = context.resources.getString(R.string.full_name, firstName, lastname)
+        val lastname: String = customersData[position].last_name.orEmpty()
+        val firstName: String = customersData[position].first_name.orEmpty()
+        val fullName: String = context.resources.getString(R.string.full_name, firstName, lastname)
         holder.tvFullName.text = fullName
 
         // get primary phone number
@@ -82,7 +89,8 @@ class CustomersAdapter(
 
 
     override fun getItemCount(): Int {
-        return customersData.size
+
+        return  customersData.size
     }
 
     inner class ViewHolder(view: View) :
@@ -101,6 +109,41 @@ class CustomersAdapter(
             tvPhoneNo = view.findViewById(R.id.tvPhoneNo)
             tvBalance = view.findViewById(R.id.tvBalance)
             tvTags = view.findViewById(R.id.tvTags)
+        }
+
+    }
+
+
+    fun getFilter(): Filter {
+        return filter
+    }
+
+    private val filter: Filter = object : Filter() {
+
+        override fun performFiltering(constraint: CharSequence?): FilterResults {
+
+            val filteredList: MutableList<CustomersData> = ArrayList()
+            if (constraint.isNullOrEmpty()) {
+                filteredList.addAll(customerListFull)
+            } else {
+                val filterPattern = constraint.toString().trim()
+                for (item in customerListFull) {
+
+                    if (item.toString().contains(filterPattern, ignoreCase = true)) {
+                        filteredList.add(item)
+                    }
+                }
+            }
+            val results = FilterResults()
+            results.values = filteredList
+            return results
+        }
+
+        override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+
+                customersData.clear()
+                customersData.addAll(results?.values as MutableList<CustomersData>)
+                notifyDataSetChanged()
         }
 
     }
