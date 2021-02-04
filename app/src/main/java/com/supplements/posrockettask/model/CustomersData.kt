@@ -37,7 +37,7 @@ class CustomersData {
             addressesList+= a.toString()
         }
 
-        return "$first_name $last_name $country ${addressesList.orEmpty()} ${phoneNumbers.orEmpty()}"
+        return "$first_name $last_name $gender $country ${addressesList.orEmpty()} ${phoneNumbers.orEmpty()}"
     }
 
 

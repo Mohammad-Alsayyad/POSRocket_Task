@@ -1,7 +1,6 @@
 package com.supplements.posrockettask.rest_client
 
-import androidx.room.Room
-import com.supplements.general.AppConstants.BASE_URL
+import com.supplements.posrockettask.general.AppConstants.BASE_URL
 import com.supplements.posrockettask.network.APIEndpoint
 import dagger.Module
 import dagger.Provides

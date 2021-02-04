@@ -9,7 +9,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
@@ -25,7 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
     private lateinit var viewModel: HomeViewModel
     private lateinit var rvCustomer: RecyclerView
@@ -44,8 +43,8 @@ class HomeActivity : AppCompatActivity() {
             ViewModelProvider(this).get(HomeViewModel::class.java)
         setContentView(R.layout.activity_home)
 
-        rvCustomer = findViewById(R.id.rvCustomers)
-        toolbar = findViewById(R.id.toolbarHomePage)
+        rvCustomer = findViewById(R.id.rv_customers)
+        toolbar = findViewById(R.id.toolbar_home)
         container = findViewById(R.id.container)
 
         // ToolBar
@@ -94,22 +93,26 @@ class HomeActivity : AppCompatActivity() {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView: SearchView = searchItem?.actionView as SearchView
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
+        searchView.setOnQueryTextListener(this)
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                callSearch(query)
-                return true
-            }
-            override fun onQueryTextChange(newText: String): Boolean {
-                callSearch(newText)
-                return true
-            }
-
-            fun callSearch(query: String?) {
-                adapter.getFilter().filter(query);
-            }
-        })
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        callSearch(query)
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        callSearch(newText)
+        return true
+    }
+
+    private fun callSearch(query: String?) {
+
+        if (this::adapter.isInitialized) {
+            adapter.getFilter().filter(query)
+        }
     }
 
 }

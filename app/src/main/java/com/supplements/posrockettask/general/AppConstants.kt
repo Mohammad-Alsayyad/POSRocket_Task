@@ -1,4 +1,4 @@
-package com.supplements.general
+package com.supplements.posrockettask.general
 
 object AppConstants
 {
