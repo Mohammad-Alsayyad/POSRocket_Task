@@ -1,12 +1,16 @@
 package com.supplements.posrockettask.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.supplements.posrockettask.model.addresses.Addresses
 import com.supplements.posrockettask.model.tags.Tags
 import java.util.*
 
+@Entity(tableName = "data")
 class CustomersData {
 
-    var id:String? = null
+    @PrimaryKey
+    var id:String=""
     var dob:String? =null
     var tags:MutableList<Tags>? = null
     var email:String?= null
@@ -16,8 +20,10 @@ class CustomersData {
     var comments:String? =  null
     var addresses:MutableList<Addresses>? = null
     var last_name:String?= null
-    var created_at: Date?=null
+    var created_at: String?=null
     var first_name:String? =null
-    var updated_at: Date?=null
+    var updated_at: String?=null
     var phone_numbers:MutableList<PhoneNumbers>?=null
+
+
 }

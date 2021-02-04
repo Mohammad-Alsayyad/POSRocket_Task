@@ -1,8 +1,13 @@
 package com.supplements.posrockettask.model.addresses
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "addresses")
 class Addresses {
 
-    var id:String?=""
+    @PrimaryKey
+    var id:String=""
     var area: Area? =null
     var city: City? = null
     var block: Block? = null
@@ -15,6 +20,40 @@ class Addresses {
     var position: Position? = null
     var apartment:String? = null
     var residence:String? = null
-    var is_primary:Boolean? = null
-    var is_verified:Boolean? = null
+    var is_primary:Boolean=false
+    var is_verified:Boolean=false
+
+    constructor(
+        id: String,
+        area: Area?,
+        city: City?,
+        block: Block?,
+        floor: String?,
+        label: String?,
+        avenue: Avenue?,
+        extras: String?,
+        street: String?,
+        building: String?,
+        position: Position?,
+        apartment: String?,
+        residence: String?,
+        is_primary: Boolean,
+        is_verified: Boolean
+    ) {
+        this.id = id
+        this.area = area
+        this.city = city
+        this.block = block
+        this.floor = floor
+        this.label = label
+        this.avenue = avenue
+        this.extras = extras
+        this.street = street
+        this.building = building
+        this.position = position
+        this.apartment = apartment
+        this.residence = residence
+        this.is_primary = is_primary
+        this.is_verified = is_verified
+    }
 }
