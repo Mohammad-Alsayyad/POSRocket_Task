@@ -1,11 +1,10 @@
-package com.supplements.posrockettask.model.addresses
+package com.supplements.posrockettask.api.business.customers.model.addresses
 
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "area")
-class Area {
+@Entity(tableName = "block")
+class Block {
 
     @PrimaryKey
     var id:String=""
@@ -15,6 +14,4 @@ class Area {
     override fun toString(): String {
         return "$ar $en"
     }
-
-
 }

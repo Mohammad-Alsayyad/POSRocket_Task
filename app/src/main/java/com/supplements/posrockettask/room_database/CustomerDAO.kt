@@ -5,7 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.supplements.posrockettask.model.CustomersData
+import com.supplements.posrockettask.api.business.customers.model.CustomersData
 import io.reactivex.rxjava3.core.Completable
 
 

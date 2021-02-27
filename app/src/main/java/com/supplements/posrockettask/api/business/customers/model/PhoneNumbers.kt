@@ -1,10 +1,7 @@
-package com.supplements.posrockettask.model
+package com.supplements.posrockettask.api.business.customers.model
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
-import javax.annotation.Nullable
 
 @Entity(tableName = "phone_numbers")
 class PhoneNumbers {

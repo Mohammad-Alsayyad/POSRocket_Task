@@ -9,9 +9,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.supplements.posrockettask.R
-import com.supplements.posrockettask.model.CustomersData
-import com.supplements.posrockettask.model.PhoneNumbers
-import com.supplements.posrockettask.model.tags.Tags
+import com.supplements.posrockettask.api.business.customers.model.CustomersData
+import com.supplements.posrockettask.api.business.customers.model.PhoneNumbers
+import com.supplements.posrockettask.api.business.customers.model.tags.Tags
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.util.*

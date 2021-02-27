@@ -1,7 +1,6 @@
-package com.supplements.posrockettask.model.addresses
+package com.supplements.posrockettask.api.business.customers.model.addresses
 
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "avenue")

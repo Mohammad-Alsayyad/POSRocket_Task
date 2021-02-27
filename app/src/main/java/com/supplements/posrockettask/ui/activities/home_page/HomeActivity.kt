@@ -21,12 +21,12 @@ import com.supplements.posrockettask.adapter.CustomersAdapter
 import com.supplements.posrockettask.helper.HelperClass
 import com.supplements.posrockettask.ui.activities.customer_page.AddCustomerActivity
 import dagger.hilt.android.AndroidEntryPoint
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-@AndroidEntryPoint
 class HomeActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
-    private lateinit var viewModel: HomeViewModel
+    private val viewModel by viewModel<HomeViewModel>()
     private lateinit var rvCustomer: RecyclerView
     private var spanCount: Int = 0
     private var isConnected: Boolean? = null
@@ -39,8 +39,6 @@ class HomeActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
         setContentView(R.layout.activity_home)
 
         rvCustomer = findViewById(R.id.rv_customers)

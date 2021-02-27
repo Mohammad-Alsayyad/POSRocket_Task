@@ -1,4 +1,4 @@
-package com.supplements.posrockettask.model
+package com.supplements.posrockettask.api.business.customers.model
 
 class Customer {
 

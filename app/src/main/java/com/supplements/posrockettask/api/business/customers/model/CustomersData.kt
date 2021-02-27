@@ -1,11 +1,9 @@
-package com.supplements.posrockettask.model
+package com.supplements.posrockettask.api.business.customers.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.supplements.posrockettask.model.addresses.Addresses
-import com.supplements.posrockettask.model.tags.Discounts
-import com.supplements.posrockettask.model.tags.Tags
-import java.util.*
+import com.supplements.posrockettask.api.business.customers.model.addresses.Addresses
+import com.supplements.posrockettask.api.business.customers.model.tags.Tags
 
 @Entity(tableName = "data")
 class CustomersData {

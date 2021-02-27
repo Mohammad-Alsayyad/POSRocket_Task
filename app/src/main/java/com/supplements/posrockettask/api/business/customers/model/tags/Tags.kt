@@ -1,4 +1,4 @@
-package com.supplements.posrockettask.model.tags
+package com.supplements.posrockettask.api.business.customers.model.tags
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
