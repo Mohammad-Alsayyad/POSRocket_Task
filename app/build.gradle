@@ -91,5 +91,15 @@ dependencies {
     // check internet connection
     implementation 'com.github.pwittchen:networkevents:2.1.6'
 
+    //coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
+
+
+    def koin_version = "2.0.1"
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+
+
+
 
 }

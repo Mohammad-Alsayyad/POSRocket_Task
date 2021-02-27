@@ -3,12 +3,11 @@ package com.supplements.posrockettask.room_database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.supplements.posrockettask.model.CustomersData
-import com.supplements.posrockettask.model.PhoneNumbers
-import com.supplements.posrockettask.model.addresses.*
-import com.supplements.posrockettask.model.tags.Discounts
-import com.supplements.posrockettask.model.tags.Tags
-import com.supplements.posrockettask.room_database.CustomerDAO
+import com.supplements.posrockettask.api.business.customers.model.CustomersData
+import com.supplements.posrockettask.api.business.customers.model.PhoneNumbers
+import com.supplements.posrockettask.api.business.customers.model.addresses.*
+import com.supplements.posrockettask.api.business.customers.model.tags.Discounts
+import com.supplements.posrockettask.api.business.customers.model.tags.Tags
 
 @Database(
     entities = [CustomersData::class, Addresses::class,

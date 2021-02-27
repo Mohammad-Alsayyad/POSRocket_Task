@@ -3,10 +3,10 @@ package com.supplements.posrockettask.room_database
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.supplements.posrockettask.model.PhoneNumbers
-import com.supplements.posrockettask.model.addresses.*
-import com.supplements.posrockettask.model.tags.Discounts
-import com.supplements.posrockettask.model.tags.Tags
+import com.supplements.posrockettask.api.business.customers.model.PhoneNumbers
+import com.supplements.posrockettask.api.business.customers.model.addresses.*
+import com.supplements.posrockettask.api.business.customers.model.tags.Discounts
+import com.supplements.posrockettask.api.business.customers.model.tags.Tags
 import java.io.Serializable
 import java.lang.reflect.Type
 
