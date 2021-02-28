@@ -8,5 +8,5 @@ import retrofit2.http.GET
 interface CustomersService {
 
     @GET(AppConstants.CUSTOMERS_DATA)
-    fun getAllCustomers(): Single<Customer>
+    suspend fun getAllCustomers(): Customer
 }

@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 
 val customersRepository = module {
     factory { createCustomersApiService(get()) }
-    factory { CustomersRepository(get(),get()) }
+    factory { CustomersRepository(get()) }
 }
 
 fun createCustomersApiService(retrofit: Retrofit): CustomersService =
