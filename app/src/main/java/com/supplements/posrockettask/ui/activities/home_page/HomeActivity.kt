@@ -63,19 +63,18 @@ class HomeActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     }
 
     private fun buildRVCustomer(spanCount: Int) {
-
         container.addView(progressBar, params)
 
         rvCustomer.layoutManager =
             StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL)
 
-        viewModel.getAllCustomers().observe(
+        viewModel.customersList.observe(
             this
         ) { it ->
             adapter = CustomersAdapter(this, it)
             rvCustomer.adapter = adapter
             progressBar.visibility = View.GONE
-            adapter.notifyDataSetChanged()
+           // adapter.notifyDataSetChanged()
 
         }
     }

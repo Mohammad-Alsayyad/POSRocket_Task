@@ -20,32 +20,34 @@ val homeViewModel = module {
     }
 }
 
-class HomeViewModel constructor(var repository: CustomersRepository, var customerDAO: CustomerDAO) : ViewModel() {
+class HomeViewModel constructor(var repository: CustomersRepository, var customerDAO: CustomerDAO) :
+    ViewModel() {
 
+    val customersList: MutableLiveData<MutableList<CustomersData>> by lazy {
+        MutableLiveData<MutableList<CustomersData>>()
+    }
+    init {
+        getAllCustomers()
+    }
 
-    fun getAllCustomers() :LiveData<MutableList<CustomersData>> {
+    fun getAllCustomers() {
 
-        var customersList: MutableLiveData<MutableList<CustomersData>> =
-            MutableLiveData<MutableList<CustomersData>>()
+        GlobalScope.launch(Dispatchers.IO) {
 
-        viewModelScope.launch(Dispatchers.IO) {
+            /*val api: Job = launch { getCustomersFromNetwork() }
+            api.join()*/
 
-            val api:Job = launch { getCustomersFromNetwork() }
-            api.join()
-
-            withContext(Dispatchers.Main) {
-                customersList.value =getCustomersFromDatabase()
+            launch {
+                customersList.postValue(getCustomersFromDatabase())
             }
 
         }
-        return customersList
-
     }
 
-    private suspend fun getCustomersFromNetwork(){
+    private suspend fun getCustomersFromNetwork() {
 
-       val data =  repository.getAllCustomers()
-        if (!data.isNullOrEmpty()){
+        val data = repository.getAllCustomers()
+        if (!data.isNullOrEmpty()) {
             customerDAO.insertAllCustomers(data)
         }
 
