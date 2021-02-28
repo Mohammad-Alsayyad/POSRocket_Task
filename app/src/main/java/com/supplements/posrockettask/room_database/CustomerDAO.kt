@@ -13,12 +13,8 @@ import io.reactivex.rxjava3.core.Completable
 interface CustomerDAO {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertAllCustomers(customersData: MutableList<CustomersData>): Completable
+    fun insertAllCustomers(customersData: MutableList<CustomersData>)
 
     @Query("SELECT * FROM data")
-    fun getAllCustomers() :LiveData<MutableList<CustomersData>>
-
-    @Query("SELECT COUNT(data.id) FROM data")
-    fun getDataCount(): Int
-
+    suspend fun getAllCustomers() :MutableList<CustomersData>
 }

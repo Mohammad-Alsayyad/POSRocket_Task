@@ -20,7 +20,6 @@ import com.supplements.posrockettask.R
 import com.supplements.posrockettask.adapter.CustomersAdapter
 import com.supplements.posrockettask.helper.HelperClass
 import com.supplements.posrockettask.ui.activities.customer_page.AddCustomerActivity
-import dagger.hilt.android.AndroidEntryPoint
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -29,7 +28,6 @@ class HomeActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     private val viewModel by viewModel<HomeViewModel>()
     private lateinit var rvCustomer: RecyclerView
     private var spanCount: Int = 0
-    private var isConnected: Boolean? = null
     private lateinit var adapter: CustomersAdapter
     private lateinit var toolbar: Toolbar
     lateinit var progressBar: ProgressBar
@@ -60,19 +58,18 @@ class HomeActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         // detect span count
         spanCount = HelperClass.calcSpanWidth(this, 150.0)
         // check internet connection
-        isConnected = NetworkHelper.isConnectedToWiFiOrMobileNetwork(this)
-        // build recycler view
-        buildRVCustomer(spanCount, isConnected!!)
+
+        buildRVCustomer(spanCount)
     }
 
-    private fun buildRVCustomer(spanCount: Int, isConnected: Boolean) {
+    private fun buildRVCustomer(spanCount: Int) {
 
         container.addView(progressBar, params)
 
         rvCustomer.layoutManager =
             StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL)
 
-        viewModel.getAllCustomers(isConnected).observe(
+        viewModel.getAllCustomers().observe(
             this
         ) { it ->
             adapter = CustomersAdapter(this, it)

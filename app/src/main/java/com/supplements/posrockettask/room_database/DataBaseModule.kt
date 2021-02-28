@@ -3,12 +3,8 @@ package com.supplements.posrockettask.room_database
 import android.app.Application
 import android.content.Context
 import androidx.room.*
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+
 import org.koin.dsl.module
-import javax.inject.Singleton
 
 
 val roomDatabaseModules = module {
